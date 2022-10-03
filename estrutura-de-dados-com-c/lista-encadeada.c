@@ -6,7 +6,7 @@
 
 
 #ifdef ex01
-/** Implemente através de um algoritmo o exemplo de Lista Encadeada descrito nos slides de 11 a 16. */
+/** Implemente através de um algoritmo o exemplo de Lista Encadeada */
 
 typedef struct {
     char name[10];
@@ -120,9 +120,7 @@ void changeName(List *list, char name[15], char newName[15])
             }
         }
 
-        printf("\n\n%s\n\n", (*auxNode).name);
-
-        if (nameAlreadyExist == 1 ) {
+        if (nameAlreadyExist == 1  || strcmp((*auxNode).name, oldName) == 0 ) {
              strcpy((*auxNode).name, currentName);
         }
         else {
@@ -179,6 +177,7 @@ void removeMiddle(List *list, char name[15])
     if (nameAlreadyExist == 1 && (*auxNode).next != NULL) {
         (*antNode).next = (*auxNode).next;
         memset(auxNode, 0, sizeof(Node));
+        (*list).length--;
     }
     else {
         printf("\n\nNome não encontrado \n\n");
