@@ -1,12 +1,5 @@
 ## Exercícios Linguagem C - Curso Analise e Desenvolvimento de Sistemas - FATEC - Rubens LARA
-### Este repositório tem como ideia organizar os exercícios em linguagem C estudados no 2º semestre do Curso, já aproveitando a ferramenta do GitHub como junção de aprendizado.
-
-Aluno: Mauro Paulino
-
-mauro.paulino@gmail.com
-
-Linkedin: https://www.linkedin.com/in/mauroppjr/
-
+### Esta página tem como ideia organizar os exercícios em linguagem C estudados no 2º semestre do Curso.
 
 ### Exercicios propostos no capitulo 01
 
