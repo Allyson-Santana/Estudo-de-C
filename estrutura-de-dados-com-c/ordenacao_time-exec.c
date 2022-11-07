@@ -54,8 +54,8 @@ void calcTimeExec() {
 
     //faz algumas coisas aqui
 
-    ordenacaoBolha();ordenacaoBolha();ordenacaoBolha(); // 0.023330, 0.024622, 0.025502
-    //shellSort();shellSort();shellSort();              // 0.000337, 0.000353, 0.000333
+    //ordenacaoBolha(); // 0.023330, 0.024622, 0.025502
+    //shellSort();      // 0.000337, 0.000353, 0.000333
 
     clock_t end = clock();
 
@@ -63,7 +63,7 @@ void calcTimeExec() {
     // dividindo a diferença por CLOCKS_PER_SEC para converter em segundos
     time_spent += (double)(end - begin) / CLOCKS_PER_SEC;
 
-    printf("The elapsed time is %f seconds", time_spent/3);
+    printf("The elapsed time is %f seconds with %d elemets", time_spent, n);
 
     printf("\n\nA função não retorna o tempo real decorrido, mas retorna o tempo gasto pelo sistema operacional subjacente para executar o processo. Em outras palavras, o tempo real do relógio de parede pode ser muito maior.");
 
@@ -71,7 +71,7 @@ void calcTimeExec() {
 }
 
 void readFile() {
-    int iCont, jCont, aux = 0;
+    int iCont;
 
     FILE *f;
 
