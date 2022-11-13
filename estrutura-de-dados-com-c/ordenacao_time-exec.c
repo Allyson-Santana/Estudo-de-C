@@ -4,7 +4,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#ifdef ex12
+#ifdef ex01
 
 #define TAM 3000
 
@@ -12,6 +12,10 @@ int item[TAM];
 int n = sizeof(item)/sizeof(item[0]);
 
 void ordenacaoBolha() {
+    printf("\n\n");
+    double time_spent = 0.0;
+    clock_t begin = clock();
+
     for (int a = 1; a < n; a++) {
         for (int b = n-1; b>=1; b--) {
             if (item[b-1] > item[b]) {
@@ -21,9 +25,19 @@ void ordenacaoBolha() {
             }
         }
     }
+
+    clock_t end = clock();
+    time_spent += (double)(end - begin) / CLOCKS_PER_SEC;
+    printf("Tempo de processamento: %f segundos com %d elementos", time_spent, n );
+    printf("\n\nA função não retorna o tempo real decorrido, mas retorna o tempo gasto pelo sistema operacional subjacente para executar o processo. Em outras palavras, o tempo real do relógio de parede pode ser muito maior.");
+
+    // https://www.techiedelight.com/pt/find-execution-time-c-program/
 }
 
 void shellSort() {
+    printf("\n\n");
+    double time_spent = 0.0;
+    clock_t begin = clock();
 
     int i , j , value;
     int gap = 1;
@@ -42,8 +56,16 @@ void shellSort() {
             item [j + gap] = value;
         }
     }
+
+    clock_t end = clock();
+    time_spent += (double)(end - begin) / CLOCKS_PER_SEC;
+    printf("Tempo de processamento: %f segundos com %d elementos", time_spent, n );
+    printf("\n\nA função não retorna o tempo real decorrido, mas retorna o tempo gasto pelo sistema operacional subjacente para executar o processo. Em outras palavras, o tempo real do relógio de parede pode ser muito maior.");
+
+    // https://www.techiedelight.com/pt/find-execution-time-c-program/
 }
 
+// Function para teste
 void calcTimeExec() {
     printf("\n\n");
 
@@ -52,10 +74,8 @@ void calcTimeExec() {
 
     clock_t begin = clock();
 
-    //faz algumas coisas aqui
-
-    //ordenacaoBolha(); // 0.023330, 0.024622, 0.025502
-    //shellSort();      // 0.000337, 0.000353, 0.000333
+    ordenacaoBolha();
+    shellSort();
 
     clock_t end = clock();
 
@@ -63,7 +83,7 @@ void calcTimeExec() {
     // dividindo a diferença por CLOCKS_PER_SEC para converter em segundos
     time_spent += (double)(end - begin) / CLOCKS_PER_SEC;
 
-    printf("The elapsed time is %f seconds with %d elemets", time_spent, n);
+    printf("Tempo de processamento: %f segundos com %d elementos", time_spent, n );
 
     printf("\n\nA função não retorna o tempo real decorrido, mas retorna o tempo gasto pelo sistema operacional subjacente para executar o processo. Em outras palavras, o tempo real do relógio de parede pode ser muito maior.");
 
@@ -71,7 +91,7 @@ void calcTimeExec() {
 }
 
 void readFile() {
-    int iCont;
+    int iCont, jCont, aux = 0;
 
     FILE *f;
 
@@ -96,8 +116,25 @@ void readFile() {
 
 void main()
 {
+    int option;
+
     readFile();
 
-    calcTimeExec();
+    printf("\n1 - Ordenacao Bolha\n2 - Ordenacao Shell Sort\n3 - Sair");
+
+    printf("\n\nMenu: ");
+    scanf("%d", &option);
+
+    switch (option) {
+        case 1:
+            ordenacaoBolha();
+            break;
+        case 2:
+            shellSort();
+            break;
+        default:
+            printf("Opcao não suportada!");
+    }
+
 }
 #endif // ex01
