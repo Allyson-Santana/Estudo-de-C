@@ -4,6 +4,13 @@
 #include <time.h>
 #include <unistd.h>
 
+/*********************************************** ATENÇÂO ********************************************************
+    Para que o script funcione, irá precisar de um arquivo chamada "text.txt" com todos os 3000 elementos (Números Inteiros);
+    Use o site: https://www.invertexto.com/numeros-aleatorios para gerar os 3000 números.
+    Copie todos os 3000 elementos e crie/grave num arquivo chamado "text.txt" como está na linha 105 do código.
+    Lembre-se de salvar o arquivo "text.txt" na mesma raiz do arquivo com o código =)
+*/ 
+
 #ifdef ex01
 
 #define TAM 3000
